@@ -112,8 +112,8 @@ body{
         background-color: rgb(255, 255, 255);
         position: absolute;
         width: 20px;
-        left: 6px;
-        top: 20px;
+        left: 7.8px;
+        top: 22px;
         padding: 0;
     }
     .input_are{
@@ -121,7 +121,9 @@ body{
         align-items: center;
         justify-content: space-between;
         font-weight: lighter;
-        
+        padding: 0;
+        margin-right: 10px;
+        margin-top: 0;
     }
     #task_input{
         border-radius: 10px 0 0 10px;
