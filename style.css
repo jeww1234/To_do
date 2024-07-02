@@ -89,7 +89,7 @@ body{
 
 
 
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 40rem) {
     
     .container>h1{
         color: rgb(249, 203, 53);
