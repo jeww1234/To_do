@@ -125,16 +125,18 @@ body{
     }
     #task_input{
         border-radius: 10px 0 0 10px;
-        width: 5em;
-        height: 1em;
-        line-height: 0.8em;
+        width: 50px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 8px;
+        
     }
     
     #add_button{
         border-radius: 0 10px 10px 0;
-        width: 2em;
-        height: 1em;
-        line-height: 0.8em;
+        width: 50px;
+        height: 15px;
+        line-height: 15px;
     }
     .task_are{
         display: flex;
