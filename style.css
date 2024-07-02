@@ -89,19 +89,19 @@ body{
 
 
 
-@media screen and (max-width: 40rem) {
+@media screen and (max-width: 48rem) {
     
     .container>h1{
         color: rgb(249, 203, 53);
         font-weight: 900;
         -webkit-text-stroke: 0.7px black;
         text-align: center;
-        font-size: 2.5em;
+        font-size: 1.5em;
         padding-top: 20px;
     }
 
     .task_tabs{
-        font-size: 0.9em;
+        font-size: 0.7em;
         color: rgb(249, 203, 53);
         font-weight: bolder;
         -webkit-text-stroke: 0.3px black;
@@ -142,7 +142,7 @@ body{
     }
     .task button{
         width: 5em;
-        font-size: 0.8em;
+        font-size: 0.5em;
         text-align: center;
     }
     .task_list{
