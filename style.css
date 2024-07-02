@@ -90,6 +90,10 @@ body{
 
 
 @media screen and (max-width: 48rem) {
+
+    .task_tabs div{
+        padding: 10px;
+    }
     
     .container>h1{
         color: rgb(249, 203, 53);
@@ -119,8 +123,6 @@ body{
     .input_are{
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        font-weight: lighter;
         padding: 0;
         margin-right: 10px;
         margin-top: 0;
@@ -138,7 +140,7 @@ body{
         border-radius: 0 10px 10px 0;
         width: 50px;
         height: 15px;
-        line-height: 15px;
+        line-height: 12px;
     }
     .task_are{
         display: flex;
