@@ -37,11 +37,13 @@ for(let i = 0; i < tabs.length; i++){
 
 
 function filter(event){
-    mode = event.target.id;
+
+    if(event){mode = event.target.id};
+
     filterList = [];
     if(mode === "all"){
         render();
-    }else if(mode === "ongo"){
+    }else if(mode === "onGo"){
         for(let i = 0; i < taskList.length; i++){
             if(taskList[i].isComplete == false){
                 filterList.push(taskList[i])
@@ -71,6 +73,9 @@ function AD(i){
 
 
 function addTask(){
+    if(taskInput.value == ""){
+        return;
+    }      
         let task = {
         taskContent: taskInput.value,
         isComplete: false,
@@ -78,7 +83,8 @@ function addTask(){
     }
     taskList.push(task);
     console.log(taskList);
-    render();
+    filter();
+    taskInput.value = "";
 }
 
 function render(){
@@ -112,13 +118,14 @@ function render(){
 }
 
 function toggleComplete(id){
+    console.log("id", id);
     for (let i = 0; i < taskList.length; i++){
         if(taskList[i].id == id){
             taskList[i].isComplete = !taskList[i].isComplete;
             break;
         }
     }
-    render();
+    filter();
     console.log(taskList);
 }
 
@@ -133,16 +140,27 @@ function deleteTask(id){
             break;
         }
     }
-    render();
-    for(let i = 0; i < filterList.length; i++){
-        if(filterList[i].id == id){
-            filterList.splice(i, 1);
-            break;
-        }
-    }
-    render();
+    filter();
 }
 
 taskInput.addEventListener("focus", function(){
     taskInput.value = "";
 })
+
+
+
+
+
+taskInput.addEventListener("keypress", function(event) {
+    if(taskInput.value == ""){
+        return;
+    }
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("add_button").click();
+    }
+    
+  });
