@@ -42,15 +42,15 @@ body{
     align-items: center;
 }
 .task_tabs div{
-    padding: 1em;
+    padding: 0.5em;
+    cursor: pointer;
 }
 
 #under_line{
     height: 4px;
     background-color: rgb(255, 255, 255);
     position: absolute;
-    width: 88px;
-    left: 20px;
+    width: 96px;
     top: 80px;
     padding: 0;
 }
@@ -115,6 +115,7 @@ body{
 
     .task_tabs div{
         padding: 10px;
+        
     }
     
     .container>h1{
@@ -141,9 +142,8 @@ body{
         height: 0.8px;
         background-color: rgb(255, 255, 255);
         position: absolute;
-        width: 21.5px;
-        left:6px;
-        top: 22px;
+        width: 34px;
+        top: 31px;
         padding: 0;
     }
     .input_are{
@@ -167,12 +167,14 @@ body{
     #add_button{
         border-style: none;
         border-radius: 0 10px 10px 0;
-        width: 40px;
+        width: 20px;
+        text-align: center;
         height: 13px;
-        line-height: 16px;
+        line-height: 13px;
         margin-left: 1px;
         color: rgb(234, 255, 0);
         -webkit-text-stroke: 0.7px black;
+        padding-left: 5px;
     }
     .task_are{
         display: flex;

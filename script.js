@@ -9,6 +9,54 @@ let taskInput = document.getElementById("task_input");
 let addButton = document.getElementById("add_button");
 let taskList = [];
 let allDelete = document.getElementById("allDelete");
+let tabs = document.querySelectorAll(".task_tabs div")
+let mode ='all';
+let filterList = [];
+let underLine = document.getElementById("under_line");
+let underMenu = document.querySelectorAll(".task_tabs:first-child div");
+let List = [];
+
+underMenu.forEach((menu)=> menu.addEventListener("click", (e)=> horizontalIndicator(e)));
+
+function horizontalIndicator(e){
+    underLine.style.left = e.currentTarget.offsetLeft + "px";
+    underLine.style.width = e.currentTarget.offsetWidth + "px";
+    underLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+}
+
+
+
+
+console.log(underMenu);
+
+for(let i = 0; i < tabs.length; i++){
+
+    tabs[i].addEventListener("click", function(event){filter(event)});
+
+    };
+
+
+function filter(event){
+    mode = event.target.id;
+    filterList = [];
+    if(mode === "all"){
+        render();
+    }else if(mode === "ongo"){
+        for(let i = 0; i < taskList.length; i++){
+            if(taskList[i].isComplete == false){
+                filterList.push(taskList[i])
+            }
+        }
+        render();
+    }else if(mode === "done"){
+        for(let i = 0; i < taskList.length; i++){
+           if(taskList[i].isComplete == true){
+            filterList.push(taskList[i])
+            } 
+        }
+        render();
+    }
+}
 
 
 
@@ -34,33 +82,36 @@ function addTask(){
 }
 
 function render(){
+    List = [];
+    if(mode == "all"){
+        List = taskList;
+    }else if(mode != "ongo" || mode != "done"){
+        List = filterList;
+    }
     let resultHTML = "";
-    for(let i = 0; i < taskList.length; i++){
-        if(taskList[i].isComplete == true){
+    for(let i = 0; i <List.length; i++){
+        if(List[i].isComplete == true){
             resultHTML += `<div class="task backC">
-                    <div class="task_list, task_done">${taskList[i].taskContent}</div>
+                    <div class="task_list, task_done">${List[i].taskContent}</div>
                     <div>
-                    <button onClick = "toggleComplete('${taskList[i].id}')">Check</button>
-                    <button onClick = "deleteTask('${taskList[i].id}')">Delete</button>
+                    <button onClick = "toggleComplete('${List[i].id}')">Check</button>
+                    <button onClick = "deleteTask('${List[i].id}')">Delete</button>
                     </div>
                 </div>`;
         }else{
             resultHTML += `<div class="task">
-                    <div class="task_list">${taskList[i].taskContent}</div>
+                    <div class="task_list">${List[i].taskContent}</div>
                     <div>
-                    <button onClick = "toggleComplete('${taskList[i].id}')">Check</button>
-                    <button onClick = "deleteTask('${taskList[i].id}')">Delete</button>
+                    <button onClick = "toggleComplete('${List[i].id}')">Check</button>
+                    <button onClick = "deleteTask('${List[i].id}')">Delete</button>
                     </div>
                 </div>`;
         }
     }
-
-
     document.getElementById("task_board").innerHTML = resultHTML;
 }
 
 function toggleComplete(id){
-    console.log("id", id);
     for (let i = 0; i < taskList.length; i++){
         if(taskList[i].id == id){
             taskList[i].isComplete = !taskList[i].isComplete;
@@ -79,6 +130,13 @@ function deleteTask(id){
     for(let i = 0; i < taskList.length; i++){
         if(taskList[i].id == id){
             taskList.splice(i, 1);
+            break;
+        }
+    }
+    render();
+    for(let i = 0; i < filterList.length; i++){
+        if(filterList[i].id == id){
+            filterList.splice(i, 1);
             break;
         }
     }
