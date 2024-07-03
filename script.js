@@ -22,7 +22,7 @@ underMenu.forEach((menu)=> menu.addEventListener("click", (e)=> horizontalIndica
 function horizontalIndicator(e){
     underLine.style.left = e.currentTarget.offsetLeft + "px";
     underLine.style.width = e.currentTarget.offsetWidth + "px";
-    underLine.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+    
 }
 
 
