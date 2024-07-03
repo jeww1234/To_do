@@ -88,7 +88,7 @@ function addTask(){
     console.log(taskList);
     taskInput.value = "";
     filter();
-    
+    1
 }
 
 function render(){
