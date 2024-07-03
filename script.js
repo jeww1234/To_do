@@ -67,10 +67,12 @@ allDelete.addEventListener("click", AD);
 addButton.addEventListener("click", addTask);
 
 function AD(i){
-    taskList.splice(i);
-    render(i);
+    for(let i = 0; i <List.length; i++){
+        if(List[i].isComplete == true || List[i].isComplete == false){
+            taskList.splice(i);
+        }
+}filter();
 }
-
 
 
 function addTask(){
