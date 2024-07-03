@@ -15,6 +15,7 @@ let filterList = [];
 let underLine = document.getElementById("under_line");
 let underMenu = document.querySelectorAll(".task_tabs:first-child div");
 let List = [];
+let resultHTML = "";
 
 underMenu.forEach((menu)=> menu.addEventListener("click", (e)=> horizontalIndicator(e)));
 
@@ -94,22 +95,26 @@ function render(){
     }else if(mode != "ongo" || mode != "done"){
         List = filterList;
     }
-    let resultHTML = "";
+    resultHTML = "";
     for(let i = 0; i <List.length; i++){
         if(List[i].isComplete == true){
             resultHTML += `<div class="task backC">
                     <div class="task_list, task_done">${List[i].taskContent}</div>
                     <div>
-                    <button onClick = "toggleComplete('${List[i].id}')">Check</button>
-                    <button onClick = "deleteTask('${List[i].id}')">Delete</button>
+                    <button onClick = "toggleComplete('${List[i].id}')"><img src="./img/되돌리기.png" alt="">
+                    
+                    </button>
+                    <button onClick = "deleteTask('${List[i].id}')"><img src="./img/스레기통.png" alt=""></button>
                     </div>
                 </div>`;
         }else{
             resultHTML += `<div class="task">
                     <div class="task_list">${List[i].taskContent}</div>
                     <div>
-                    <button onClick = "toggleComplete('${List[i].id}')">Check</button>
-                    <button onClick = "deleteTask('${List[i].id}')">Delete</button>
+                    <button onClick = "toggleComplete('${List[i].id}')">Check
+                    
+                    </button>
+                    <button onClick = "deleteTask('${List[i].id}')"><img src="./img/스레기통.png" alt=""></button>
                     </div>
                 </div>`;
         }
@@ -118,15 +123,20 @@ function render(){
 }
 
 function toggleComplete(id){
-    console.log("id", id);
+    
     for (let i = 0; i < taskList.length; i++){
         if(taskList[i].id == id){
-            taskList[i].isComplete = !taskList[i].isComplete;
-            break;
+            if(taskList[i].isComplete = !taskList[i].isComplete){
+
+
+
+                break;
+            }
+            
         }
     }
+    
     filter();
-    console.log(taskList);
 }
 
 function randomIDGenerate(){
