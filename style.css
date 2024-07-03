@@ -59,10 +59,14 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 1em;
-    background-color: rgba(255, 255, 0, 0.1);
+    background-color: rgba(228, 228, 89, 0.1);
     border: 1px solid palevioletred;
     margin-top: 5px;
 }
+.backC{
+    background-color: rgba(228, 228, 89, 1);
+}
+
 .task_list{
     font-size: 1.5em;
     color: rgb(255, 247, 0);
