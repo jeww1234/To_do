@@ -130,7 +130,7 @@ body{
  
 
     .task_tabs{
-        font-size: 0.45em;
+        font-size: 0.55em;
         color: rgb(249, 203, 53);
         font-weight: bolder;
         -webkit-text-stroke: 0.3px black;
@@ -169,7 +169,7 @@ body{
         border-radius: 0 10px 10px 0;
         width: 40px;
         height: 13px;
-        line-height: 13px;
+        line-height: 16px;
         margin-left: 1px;
         color: rgb(234, 255, 0);
         -webkit-text-stroke: 0.7px black;
@@ -223,7 +223,7 @@ body{
 
     .container>h5{
         margin: 5px;
-        font-size: 7px;
+        font-size: 9px;
         color: white;
         font-weight: lighter;
         cursor: pointer;
